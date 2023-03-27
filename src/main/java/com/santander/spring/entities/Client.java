@@ -3,13 +3,18 @@ package com.santander.spring.entities;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
+
 import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
 
 @Entity
+@Component
+@Table(name = "tb_client")
 public class Client implements Serializable{
-
-	
 	private static final long serialVersionUID = 1L;
+
 	private UUID id;
 	private String document;
 	private String firstName;
