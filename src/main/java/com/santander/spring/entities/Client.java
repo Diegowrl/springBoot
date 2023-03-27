@@ -2,20 +2,21 @@ package com.santander.spring.entities;
 
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.UUID;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-import org.springframework.stereotype.Component;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
-@Component
 @Table(name = "tb_client")
 public class Client implements Serializable{
 	private static final long serialVersionUID = 1L;
 
-	private UUID id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String document;
 	private String firstName;
 	private String lastName;
@@ -26,7 +27,7 @@ public class Client implements Serializable{
 	public Client() {
 	}
 	
-	public Client(UUID id, String document, String firstName, String lastName, String email, String password,int brokerId) {
+	public Client(Long id, String document, String firstName, String lastName, String email, String password,int brokerId) {
 		this.id = id;
 		this.document = document;
 		this.firstName = firstName;
@@ -36,11 +37,11 @@ public class Client implements Serializable{
 		this.brokerId = brokerId;
 	}
 
-	public UUID getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(UUID id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
