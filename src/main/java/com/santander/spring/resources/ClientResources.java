@@ -26,14 +26,4 @@ public class ClientResources {
 		
 		return ResponseEntity.ok().body(list);
 	} 
-
-	// @GetMapping
-	// public ResponseEntity<List<Client>> findAll(){
-		
-	// 	List<Client> list = new ArrayList<>();
-		
-	// 	list.add(new Client());
-		
-	// 	return ResponseEntity.ok().body(list);
-	// } 
 }

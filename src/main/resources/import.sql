@@ -1,0 +1,3 @@
+insert into tb_client(broker_Id, document, email, first_name, last_name, password) VALUES (1, '12385647845', 'diego.liberato@hotmail.com','Diego', 'Liberato', 'Admin')
+insert into tb_client(broker_Id, document, email, first_name, last_name, password) VALUES (2, '85596345748', 'carlos.magalhaes@hotmail.com','Carlos', 'Magalhaes', 'Admin')
+insert into tb_client(broker_Id, document, email, first_name, last_name, password) VALUES (3, '88541245876', 'daniel.senhor@hotmail.com','Daniel', 'Senhor', 'Admin')
