@@ -52,4 +52,12 @@ public class ClientResources {
 
 		return ResponseEntity.ok().body(dto);
 	}
+
+	@DeleteMapping(value = "{id}")
+	public ResponseEntity<ClientDTO> delete(@PathVariable Long id){
+
+		service.delete(id);
+
+		return ResponseEntity.noContent().build();
+	}
 }

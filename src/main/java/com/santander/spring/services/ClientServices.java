@@ -5,9 +5,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.santander.spring.dto.ClientDTO;
+import com.santander.spring.exceptions.DataBaseException;
 import com.santander.spring.exceptions.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import com.santander.spring.entities.Client;
 import com.santander.spring.repository.ClientRepository;
@@ -70,5 +73,18 @@ public class ClientServices {
 		}catch (EntityNotFoundException ex){
 			throw new ResourceNotFoundException("Id not found" + id);
 		}
+	}
+
+	public void delete(Long id) {
+
+		try {
+			repository.deleteById(id);
+		}catch (EmptyResultDataAccessException e){
+			throw new ResourceNotFoundException("Id not found" + id);
+		}
+		catch (DataIntegrityViolationException data){
+			throw new DataBaseException("Integrity violation" + data.getMessage());
+		}
+
 	}
 }
