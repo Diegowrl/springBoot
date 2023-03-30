@@ -1,5 +1,6 @@
 package com.santander.spring.resources;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,8 +22,8 @@ public class ConditionResources {
 		
 		List<Condition> list = new ArrayList<>();
 		
-		list.add(new Condition(UUID.randomUUID(), 1 ,new Date()));
-		list.add(new Condition(UUID.randomUUID(), 2 ,new Date()));
+		//list.add(new Condition(UUID.randomUUID(), 1 , new Instant));
+		//list.add(new Condition(UUID.randomUUID(), 2 ,new Instant));
 		
 		return ResponseEntity.ok().body(list);
 	} 

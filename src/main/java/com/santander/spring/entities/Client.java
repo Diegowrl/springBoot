@@ -1,13 +1,12 @@
 package com.santander.spring.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tb_client")
@@ -23,7 +22,18 @@ public class Client implements Serializable{
 	private String email;
 	private String password;
 	private int brokerId;
-	
+	@OneToMany
+	@JoinColumn(name = "Id")
+	private List<Condition> conditionList = new ArrayList<>();
+
+	public List<Condition> getConditionList() {
+		return conditionList;
+	}
+
+	public void setConditionList(List<Condition> conditionList) {
+		this.conditionList = conditionList;
+	}
+
 	public Client() {
 	}
 	

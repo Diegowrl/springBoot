@@ -1,18 +1,17 @@
-package com.santander.spring.entities;
+package com.santander.spring.dto;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.Date;
 import java.util.Objects;
-import java.util.UUID;
-@Entity
-@Table(name = "tb_condition")
-public class Condition implements Serializable{
+
+public class ConditionDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 
-	@Id
 	private Long id;
 
 	private Long clientId;
@@ -26,17 +25,16 @@ public class Condition implements Serializable{
 	}
 
 	private int status;
-	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant createdAt;
 
-	public Condition(Long id,Long clientId, int status, Instant createdAt) {
+	public ConditionDTO(Long id, Long clientId, int status, Instant createdAt) {
 		this.clientId = clientId;
 		this.id = id;
 		this.status = status;
 		this.createdAt = createdAt;
 	}
 
-	public Condition() {
+	public ConditionDTO() {
 	}
 
 	public Long getId() {
@@ -63,12 +61,9 @@ public class Condition implements Serializable{
 		this.createdAt = createdAt;
 	}
 
-	@Override
 	public int hashCode() {
 		return Objects.hash(createdAt);
 	}
-
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -76,7 +71,7 @@ public class Condition implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Condition other = (Condition) obj;
+		ConditionDTO other = (ConditionDTO) obj;
 		return Objects.equals(createdAt, other.createdAt);
 	}
 }

@@ -1,19 +1,35 @@
 package com.santander.spring.entities;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
-
+@Entity
+@Table(name = "tb_condition")
 public class Condition implements Serializable{
-
 	private static final long serialVersionUID = 1L;
-	private UUID id;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private Long clientId;
+
+	public Long getClientId() {
+		return clientId;
+	}
+	public void setClientId(Long clientId) {
+		this.clientId = clientId;
+	}
+
 	private int status;
-	private Date createdAt;
-	
-	public Condition(UUID id, int status, Date createdAt) {
-		this.id = id;
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private Instant createdAt;
+
+	public Condition(Long clientId, int status, Instant createdAt) {
+		this.clientId = clientId;
 		this.status = status;
 		this.createdAt = createdAt;
 	}
@@ -21,11 +37,11 @@ public class Condition implements Serializable{
 	public Condition() {
 	}
 
-	public UUID getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(UUID id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -37,11 +53,11 @@ public class Condition implements Serializable{
 		this.status = status;
 	}
 
-	public Date getCreatedAt() {
+	public Instant getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(Instant createdAt) {
 		this.createdAt = createdAt;
 	}
 
@@ -61,8 +77,4 @@ public class Condition implements Serializable{
 		Condition other = (Condition) obj;
 		return Objects.equals(createdAt, other.createdAt);
 	}
-	
-	
-	
-	
 }

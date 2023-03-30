@@ -2,8 +2,11 @@ package com.santander.spring.dto;
 
 
 import com.santander.spring.entities.Client;
+import com.santander.spring.mapper.ConditionMapper;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClientDTO implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -14,6 +17,15 @@ public class ClientDTO implements Serializable {
     private String email;
     private String password;
     private int brokerId;
+    private List<ConditionDTO> conditionList = new ArrayList<>();
+
+    public List<ConditionDTO> getConditionList() {
+        return conditionList;
+    }
+
+    public void setConditionList(List<ConditionDTO> conditionList) {
+        this.conditionList = conditionList;
+    }
     public ClientDTO(Client client) {
         this.id = client.getId();
         this.document = client.getDocument();
@@ -22,9 +34,7 @@ public class ClientDTO implements Serializable {
         this.email = client.getEmail();
         this.password = client.getPassword();
         this.brokerId = client.getBrokerId();
-    }
-    public ClientDTO() {
-
+        this.conditionList = client.getConditionList().stream().map(ConditionMapper.INSTANCE::mapToDto).toList();
     }
 
     public ClientDTO(Long id, String document, String firstName, String lastName, String email, String password, int brokerId) {
