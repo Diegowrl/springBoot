@@ -24,11 +24,11 @@ public class Condition implements Serializable{
 		this.clientId = clientId;
 	}
 
-	private int status;
+	private Status status;
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant createdAt;
 
-	public Condition(Long clientId, int status, Instant createdAt) {
+	public Condition(Long clientId, Status status, Instant createdAt) {
 		this.clientId = clientId;
 		this.status = status;
 		this.createdAt = createdAt;
@@ -45,11 +45,11 @@ public class Condition implements Serializable{
 		this.id = id;
 	}
 
-	public int getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 

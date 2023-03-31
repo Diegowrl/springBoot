@@ -20,7 +20,6 @@ public class Client implements Serializable{
 	private String firstName;
 	private String lastName;
 	private String email;
-	private String password;
 	private int brokerId;
 	@OneToMany
 	@JoinColumn(name = "Id")
@@ -37,13 +36,12 @@ public class Client implements Serializable{
 	public Client() {
 	}
 	
-	public Client(Long id, String document, String firstName, String lastName, String email, String password,int brokerId) {
+	public Client(Long id, String document, String firstName, String lastName, String email, int brokerId) {
 		this.id = id;
 		this.document = document;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.password = password;
 		this.brokerId = brokerId;
 	}
 
@@ -85,14 +83,6 @@ public class Client implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public int getBrokerId() {

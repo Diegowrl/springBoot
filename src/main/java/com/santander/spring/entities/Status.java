@@ -1,2 +1,9 @@
-package com.santander.spring.entities;public enum Status {
+package com.santander.spring.entities;
+
+public enum Status {
+    Criado,
+    Aprovado,
+    Operante,
+    Suspenso,
+    Cancelado
 }

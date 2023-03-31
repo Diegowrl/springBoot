@@ -15,7 +15,6 @@ public class ClientDTO implements Serializable {
     private String firstName;
     private String lastName;
     private String email;
-    private String password;
     private int brokerId;
     private List<ConditionDTO> conditionList = new ArrayList<>();
 
@@ -32,18 +31,16 @@ public class ClientDTO implements Serializable {
         this.firstName = client.getFirstName();
         this.lastName = client.getLastName();
         this.email = client.getEmail();
-        this.password = client.getPassword();
         this.brokerId = client.getBrokerId();
         this.conditionList = client.getConditionList().stream().map(ConditionMapper.INSTANCE::mapToDto).toList();
     }
 
-    public ClientDTO(Long id, String document, String firstName, String lastName, String email, String password, int brokerId) {
+    public ClientDTO(Long id, String document, String firstName, String lastName, String email, int brokerId) {
         this.id = id;
         this.document = document;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.password = password;
         this.brokerId = brokerId;
     }
 
@@ -85,14 +82,6 @@ public class ClientDTO implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public int getBrokerId() {

@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.List;
 
 import com.santander.spring.dto.ClientDTO;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -23,7 +24,6 @@ public class ClientResources {
 	private ClientServices service;
 
 	@GetMapping
-
 	public ResponseEntity<Page<ClientDTO>> findAll(
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "linesPerPage", defaultValue = "12") Integer linesPerPage,

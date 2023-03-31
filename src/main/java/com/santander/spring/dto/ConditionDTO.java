@@ -1,5 +1,6 @@
 package com.santander.spring.dto;
 
+import com.santander.spring.entities.Status;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -24,10 +25,10 @@ public class ConditionDTO implements Serializable{
 		this.clientId = clientId;
 	}
 
-	private int status;
+	private Status status;
 	private Instant createdAt;
 
-	public ConditionDTO(Long id, Long clientId, int status, Instant createdAt) {
+	public ConditionDTO(Long id, Long clientId, Status status, Instant createdAt) {
 		this.clientId = clientId;
 		this.id = id;
 		this.status = status;
@@ -45,11 +46,11 @@ public class ConditionDTO implements Serializable{
 		this.id = id;
 	}
 
-	public int getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 

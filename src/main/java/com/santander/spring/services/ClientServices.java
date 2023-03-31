@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import com.santander.spring.dto.ClientDTO;
 import com.santander.spring.entities.Condition;
+import com.santander.spring.entities.Status;
 import com.santander.spring.exceptions.DataBaseException;
 import com.santander.spring.exceptions.ResourceNotFoundException;
 import com.santander.spring.repository.ConditionRepository;
@@ -35,6 +36,7 @@ public class ClientServices {
 
 		return list.map( x -> new ClientDTO(x));
 	};
+
 	@Transactional(readOnly = true)
 	public  ClientDTO findById(Long id){
 
@@ -58,11 +60,10 @@ public class ClientServices {
 		entity.setBrokerId(dto.getBrokerId());
 		entity.setFirstName(dto.getFirstName());
 		entity.setLastName(dto.getLastName());
-		entity.setPassword(dto.getPassword());
 
 		entity = repository.save(entity);
 
-		Condition condition = new Condition(entity.getId(),1, Instant.now());
+		Condition condition = new Condition(entity.getId(), Status.Criado, Instant.now());
 
 		List<Condition> list = new ArrayList<>();
 
@@ -86,7 +87,6 @@ public class ClientServices {
 			entity.setBrokerId(dto.getBrokerId());
 			entity.setFirstName(dto.getFirstName());
 			entity.setLastName(dto.getLastName());
-			entity.setPassword(dto.getPassword());
 
 			entity = repository.save(entity);
 
