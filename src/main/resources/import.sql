@@ -26,3 +26,11 @@ insert into tb_client(broker_Id, document, email, first_name, last_name) VALUES 
 insert into tb_client(broker_Id, document, email, first_name, last_name) VALUES (1, '12385647845', 'diego.liberato@hotmail.com','Diego', 'Liberato')
 insert into tb_client(broker_Id, document, email, first_name, last_name) VALUES (2, '85596345748', 'carlos.magalhaes@hotmail.com','Carlos', 'Magalhaes')
 insert into tb_client(broker_Id, document, email, first_name, last_name) VALUES (3, '88541245876', 'daniel.senhor@hotmail.com','Daniel', 'Senhor')
+
+insert into tb_condition (client_id, created_at, status) VALUES (1, TIMESTAMP WITH TIME ZONE '2020-09-10T10:00:00Z' , 0 )
+insert into tb_condition (client_id, created_at, status) VALUES (1, TIMESTAMP WITH TIME ZONE '2020-09-11T10:00:00Z' , 1 )
+insert into tb_condition (client_id, created_at, status) VALUES (1, TIMESTAMP WITH TIME ZONE '2020-09-12T10:00:00Z' , 2 )
+insert into tb_condition (client_id, created_at, status) VALUES (1, TIMESTAMP WITH TIME ZONE '2020-09-13T10:00:00Z' , 3 )
+insert into tb_condition (client_id, created_at, status) VALUES (2, TIMESTAMP WITH TIME ZONE '2020-09-10T10:00:00Z' , 0 )
+insert into tb_condition (client_id, created_at, status) VALUES (2, TIMESTAMP WITH TIME ZONE '2020-09-11T10:00:00Z' , 1 )
+insert into tb_condition (client_id, created_at, status) VALUES (2, TIMESTAMP WITH TIME ZONE '2020-09-12T10:00:00Z' , 2 )
