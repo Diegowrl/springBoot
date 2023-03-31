@@ -6,25 +6,26 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import com.santander.spring.dto.ClientDTO;
+import com.santander.spring.entities.Status;
+import com.santander.spring.services.ClientServices;
+import com.santander.spring.services.ConditionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.santander.spring.entities.Condition;
 
 @RestController
 @RequestMapping(value = "/condition")
 public class ConditionResources {
- 
-	@GetMapping
-	public ResponseEntity<List<Condition>> findAll(){
+	@Autowired
+	private ConditionService service;
+	@PostMapping(value = "/{clientid}/{status}")
+	public ResponseEntity updateClient(@PathVariable Long clientid , @PathVariable Status status){
+
+		service.createNewStatus(clientid,status);
 		
-		List<Condition> list = new ArrayList<>();
-		
-		//list.add(new Condition(UUID.randomUUID(), 1 , new Instant));
-		//list.add(new Condition(UUID.randomUUID(), 2 ,new Instant));
-		
-		return ResponseEntity.ok().body(list);
+		return ResponseEntity.noContent().build();
 	} 
 }
