@@ -21,10 +21,10 @@ import com.santander.spring.entities.Condition;
 public class ConditionResources {
 	@Autowired
 	private ConditionService service;
-	@PostMapping(value = "/{clientid}/{status}")
-	public ResponseEntity updateClient(@PathVariable Long clientid , @PathVariable Status status){
+	@PostMapping(value = "/{id}/{status}")
+	public ResponseEntity updateClient(@PathVariable Long id , @PathVariable Status status){
 
-		service.createNewStatus(clientid,status);
+		service.createNewStatus(id, status);
 		
 		return ResponseEntity.noContent().build();
 	} 
