@@ -7,6 +7,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import jakarta.persistence.*;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name = "tb_client")

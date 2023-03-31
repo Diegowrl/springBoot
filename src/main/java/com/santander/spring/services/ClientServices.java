@@ -16,6 +16,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import com.santander.spring.entities.Client;
 import com.santander.spring.repository.ClientRepository;
@@ -30,7 +31,7 @@ public class ClientServices {
 	private ConditionRepository conditionRepository;
 
 	@Transactional(readOnly = true)
-	public Page<ClientDTO> findAllPaged(PageRequest pageRequest){
+	public Page<ClientDTO> findAllPaged(Pageable pageRequest){
 
 		Page<Client> list = repository.findAll(pageRequest);
 
